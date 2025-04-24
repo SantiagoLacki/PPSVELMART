@@ -1,0 +1,8 @@
+// usar/conectarme a esta base de datos 
+use('usuariosdb');
+
+db.users.insertOne ({
+  nombre: 'santiago',
+  email: 'santiagolacki@gmail.com',
+  contraseña: '12345678'
+})
