@@ -23,8 +23,8 @@ export const ContactUs = () => {
     };
 return (
     <div className="flex h-[calc(100vh-100px)] items-center justify-center">
-        <div className="bg-zinc-800 max-w-md w-full p-10 rounded-md">
-        <form className='formulario' ref={form} onSubmit={sendEmail}>
+        <div className="bg-zinc-800 max-w-md w-full p-sm-4 p-md-2 rounded-md border border-secondary">
+        <form className='formulario p-4' ref={form} onSubmit={sendEmail}>
             <h4 className="text-2xl font-bold text-white">Formulario de contacto</h4>
             <label className="texto-register-login text-white mt-4"> Nombre Completo: </label>
             <input id= "input" type="text" name="user_name" className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"/>

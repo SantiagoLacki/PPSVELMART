@@ -5,13 +5,13 @@ function Carrusel() {
   return (
     <Carousel className='inicio-carrusel'>
       <Carousel.Item interval={2500}>
-        <img className="d-block w-100" src={imagen} alt="img1" />
+        <img className="img-carrusel d-block img-fluid w-100" src={imagen} alt="imagen carrusel cancha 1" />
       </Carousel.Item>
       <Carousel.Item interval={2500}>
-        <img className="d-block w-100" src={imagen} alt="img2" />
+        <img className="img-carrusel d-block img-fluid w-100" src={imagen} alt="imagen carrusel cancha 2" />
       </Carousel.Item>
       <Carousel.Item interval={2500}>
-        <img className="d-block w-100" src={imagen} alt="img3" />
+        <img className="img-carrusel d-block img-fluid w-100" src={imagen} alt="imagen carrusel cancha 3" />
       </Carousel.Item>
     </Carousel>
   );

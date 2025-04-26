@@ -18,7 +18,7 @@ const Footer = () => {
           md={4}
         >
           <div className="d-flex flex-column align-items-center">
-            <h5 >Redes Sociales</h5>
+            <h5 className="mb-2">Nuestras Redes</h5>
             <ul className="d-flex justify-content-center align-items-center">
               <li>
                 <Link to="/github">
@@ -40,7 +40,7 @@ const Footer = () => {
         </Col>
         <Col md={4}>
           <div className="d-flex flex-column align-items-center">
-            <h5>Legales</h5>
+            <h5 className="mb-2">Legales</h5>
             <ul className="d-flex flex-column justify-content-center align-items-center">
               <li>
                 <Link to="/politica-de-privacidad">Política de Privacidad</Link>
@@ -53,10 +53,10 @@ const Footer = () => {
         </Col>
         <Col md={4}>
           <div className="d-flex flex-column align-items-center">
-            <h5>Soporte Técnico</h5>
+            <h5 className="mb-2">Soporte Técnico</h5>
             <ul className="d-flex flex-column justify-content-center align-items-center">
               <li>
-                <Link to="/Contacto">Contáctanos</Link>
+                <Link to="/Contacto">Contactanos</Link>
               </li>
               <li>
                 <Link to="/Nosotros">Nosotros</Link>
