@@ -34,7 +34,7 @@ const data = {
       id: 4,
       title: "Camiseta - Español",
       price: 69999,
-      image: 'https://ucarecdn.com/332e30bd-0f87-42cf-8173-bcf13f39af7f/-/preview/600x800/-/format/auto/',
+      image: 'https://ucarecdn.com/332e30bd-0f87-42cf-8173-bcf13f39af7f/-/preview/600x800/-/format/auto/-/quality/smart/',
       category: "joma",
       img1: "https://stockx-360.imgix.net/Nike-LD-Waffle-Sacai-White-Nylon/Images/Nike-LD-Waffle-Sacai-White-Nylon/Lv2/img",
       img2: ".jpg?auto=format,compress&q=90&updated_at=1606325338&w=1000",

@@ -8,6 +8,9 @@ import LoginPage from './LoginPage';
 import { AuthProvider } from '../Context/AuthContext';
 import ProfilePage from './ProfilePage';
 import ProtectedRoute from '../ProtectedRoute'
+import NotFound from './error404';
+import PrivacyPolicy from './politicasPrivacidad';
+import TermsAndConditions from './terminosCondiciones';
 
 const Paginas = () => {
     return (
@@ -18,7 +21,10 @@ const Paginas = () => {
                 <Route path='/login' element={<LoginPage/>}/>
                 <Route path='/register' element={<RegisterPage/>}/>
                 <Route path='/contacto' element={<Contacto/>}/>
-            
+                <Route path="*" element={<NotFound />} /> {/* Esta ruta coincide con cualquier otra */}
+                <Route path="/politicas-de-privacidad" element={<PrivacyPolicy />} /> {/* 👈 Define la ruta para la política de privacidad */}
+                <Route path="/terminos-y-condiciones" element={<TermsAndConditions />} /> {/* 👈 Agrega la ruta */}
+
                 <Route element={<ProtectedRoute/>}>
                     <Route path='/profile' element={<ProfilePage/>}/>
                 </Route>

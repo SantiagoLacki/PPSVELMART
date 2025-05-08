@@ -21,13 +21,13 @@ function ProductList() {
 
   return (
     <Container className='container container-prod py-10 px-0'>
-      <h2 className='titulo-prod my-3 text-center text-decoration-underline underline-offset-8'> CAMISETAS </h2>
+      <h2 className='titulo-prod my-3 text-center text-decoration-underline underline-offset-8 fw-bold'> CAMISETAS </h2>
         <div className='bg-white p-3 mt-5 rounded'>
           <Row>
             {randomProducts.map((product) => ( 
               <Col className="my-1 px-1" key={product.id} xs={12} sm={6} md={4} lg={3}>
                   <Card className='inicio-cards' bg="light">
-                    <Card.Img  classsName="w-100 h-auto" height={230} variant="top" src={product.image} />
+                    <Card.Img  className="w-100 h-auto" height={230} variant="top" src={product.image} />
                     <Card.Body className='body bg-white'>
                       <Card.Title className='card-title ms-2'>{product.title}</Card.Title>
                       <Card.Text className="category text-uppercase ms-2" style={{fontWeight: 'bold'}}>
@@ -35,7 +35,7 @@ function ProductList() {
                       </Card.Text>
                       <Card.Footer className="price bg-white d-flex justify-content-around" align="center" style={{fontWeight: 'bold'}}>
                         <a className='btn btn-secondary'>${product.price}</a>
-                        <button className='btn btn-primary'>Carrito</button>
+                        <a href='*' className='btn btn-primary'>Carrito</a>
                       </Card.Footer>
                     </Card.Body>
                   </Card>
@@ -56,7 +56,7 @@ function ProductList() {
                 </Card.Text>
                 <Card.Footer className="price bg-white d-flex justify-content-around" align="center" style={{fontWeight: 'bold'}}>
                   <a className='btn btn-secondary pt-1'>${shorts.price}</a>
-                  <button className='btn btn-primary'>Carrito</button>
+                  <a href='*' className='btn btn-primary'>Carrito</a>
                 </Card.Footer>
               </Card.Body>
             </Card>

@@ -19,8 +19,8 @@ const ProductosLista = () => {
 
   return (
     <>
-      <div className="titulo-prod " align='center'>
-        <h1 className="titulo" style={{fontWeight: 'bold'}}> PRODUCTOS </h1>
+      <div>
+        <h1 className="titulo-prod p-5 text-center fw-bold text-decoration-underline underline-offset-8"> PRODUCTOS </h1>
       </div>
       <div className="container productos">
             {productos.map((producto) => (

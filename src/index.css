@@ -488,6 +488,256 @@ div .div__cantidad {
   opacity: 1;
 }
 
+/* ------ Error 404 ------*/
+
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 20px;
+}
+
+.not-found-image {
+  max-width: 80%; /* Hace que la imagen sea responsive */
+  height: auto;
+  margin-bottom: 30px;
+}
+
+.not-found-content {
+  margin-bottom: 40px;
+}
+
+.not-found-title {
+  font-size: 3em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.not-found-message {
+  font-size: 1.2em;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.not-found-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1em;
+  text-decoration: none;
+  color: #fff;
+  background-color: #007bff;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.not-found-button:hover {
+  background-color: #0056b3;
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 600px) {
+  .not-found-title {
+    font-size: 2.5em;
+  }
+
+  .not-found-message {
+    font-size: 1em;
+  }
+
+  .not-found-button {
+    font-size: 0.9em;
+    padding: 8px 16px;
+  }
+
+  .not-found-image {
+    max-width: 95%;
+  }
+}
+
+/* ----- Politicas de Privacidad ----- */
+
+.privacy-policy-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  background-color: #222121;
+}
+
+.privacy-policy-content {
+  max-width: 960px;
+  width: 100%;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  line-height: 1.6;
+  color: #333;
+}
+
+.privacy-policy-content h1,
+.privacy-policy-content h2 {
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.privacy-policy-content h1 {
+  font-size: 2.5em;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.privacy-policy-content h2 {
+  font-size: 1.8em;
+  margin-top: 30px;
+}
+
+.privacy-policy-content p {
+  margin-bottom: 15px;
+}
+
+.privacy-policy-content ul {
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+.privacy-policy-content li {
+  margin-bottom: 10px;
+  list-style-type: disc;
+}
+
+.privacy-policy-content .last-updated {
+  font-size: 0.9em;
+  color: #777;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.privacy-policy-content a {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+.privacy-policy-content a:hover {
+  color: #0056b3;
+}
+
+/* ----- Terminos y Condiciones -----*/
+
+.terms-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  background-color: #222121;
+}
+
+.terms-content {
+  max-width: 960px;
+  width: 100%;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  line-height: 1.6;
+  color: #333;
+}
+
+.terms-content h1,
+.terms-content h2 {
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.terms-content h1 {
+  font-size: 2.5em;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.terms-content h2 {
+  font-size: 1.8em;
+  margin-top: 30px;
+}
+
+.terms-content p {
+  margin-bottom: 15px;
+}
+
+.terms-content ul {
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+.terms-content li {
+  margin-bottom: 10px;
+  list-style-type: disc;
+}
+
+.terms-content .last-updated {
+  font-size: 0.9em;
+  color: #777;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.terms-content a {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+.terms-content a:hover {
+  color: #0056b3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .terms-container {
+    padding: 20px;
+  }
+
+  .terms-content {
+    padding: 20px;
+  }
+
+  .terms-content h1 {
+    font-size: 2em;
+  }
+
+  .terms-content h2 {
+    font-size: 1.5em;
+  }
+
+  .terms-content p,
+  .terms-content li {
+    font-size: 0.95em;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .privacy-policy-container {
+    padding: 20px;
+  }
+
+  .privacy-policy-content {
+    padding: 20px;
+  }
+
+  .privacy-policy-content h1 {
+    font-size: 2em;
+  }
+
+  .privacy-policy-content h2 {
+    font-size: 1.5em;
+  }
+
+  .privacy-policy-content p,
+  .privacy-policy-content li {
+    font-size: 0.95em;
+  }
+}
+
+
 /* ----- MEDIA ----- */
 
 @media only screen and (max-width: 1100px) {

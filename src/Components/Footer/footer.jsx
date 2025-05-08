@@ -21,17 +21,17 @@ const Footer = () => {
             <h5 className="mb-2">Nuestras Redes</h5>
             <ul className="d-flex justify-content-center align-items-center">
               <li>
-                <Link to="/github">
+                <Link to="https://x.com/?lang=es" target="_blank">
                   <AiFillTwitterCircle className="" size={23} />
                 </Link>
               </li>
               <li>
-                <Link to="/twitter">
+                <Link to="https://www.facebook.com/?locale=es_LA" target="_blank">
                   <AiFillFacebook className="mx-2" size={23} />
                 </Link>
               </li>
               <li>
-                <Link to="/instagram">
+                <Link to="https://www.instagram.com/" target="_blank">
                   <AiFillInstagram className="" size={23} />
                 </Link>
               </li>
@@ -43,7 +43,7 @@ const Footer = () => {
             <h5 className="mb-2">Legales</h5>
             <ul className="d-flex flex-column justify-content-center align-items-center">
               <li>
-                <Link to="/politica-de-privacidad">Política de Privacidad</Link>
+                <Link to="/politicas-de-privacidad">Política de Privacidad</Link>
               </li>
               <li>
                 <Link to="/terminos-y-condiciones">Términos y Condiciones</Link>
