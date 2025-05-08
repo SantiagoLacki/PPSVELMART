@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "../Context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function LoginPage() {
   const { login, isAuthenticated } = useAuth();
@@ -29,9 +29,9 @@ function LoginPage() {
   }, [isAuthenticated, navigate]);
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-200">
-      <div className="bg-white p-8 rounded-lg shadow-md w-96">
-        <h2 className="text-2xl font-semibold mb-4">Iniciar Sesión</h2>
+    <div className="flex justify-center items-center min-h-screen">
+      <div className="bg-zinc-800 p-8 rounded-lg shadow-md w-96">
+        <h2 className="text-2xl text-white font-semibold mb-4">Iniciar Sesión</h2>
         
         {errors.length > 0 && (
           <div className="bg-red-500 text-white p-2 rounded mb-4">
@@ -43,23 +43,23 @@ function LoginPage() {
         
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+            {/* <label htmlFor="email" className="block text-sm font-medium text-white">Email</label> */}
             <input
               type="email"
               id="email"
-              className="w-full p-2 border border-gray-300 rounded mt-1"
-              placeholder="Ingresa tu email"
+              className="w-full bg-zinc-700 text-white p-2 rounded mt-1"
+              placeholder="E-mail"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
 
           <div className="mb-6">
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">Contraseña</label>
+            {/* <label htmlFor="password" className="block text-white text-sm font-medium text-gray-700">Contraseña</label> */}
             <input
               type="password"
               id="password"
-              className="w-full p-2 border border-gray-300 rounded mt-1"
+              className="w-full bg-zinc-700 p-2 text-white rounded mt-1"
               placeholder="Contraseña"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -68,11 +68,15 @@ function LoginPage() {
 
           <button
             type="submit"
-            className="w-full py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+            className="w-full py-2 bg-blue-700 text-white rounded hover:bg-sky-500"
           >
             Iniciar sesión
           </button>
+          
         </form>
+        <p className="flex gap-x-2 justify-center text-white mt-3">
+          ¿No tienes una cuenta? <Link to="/register" className="text-blue-600">Registrate aqui</Link>
+        </p>
       </div>
     </div>
   );

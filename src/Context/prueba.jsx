@@ -33,11 +33,11 @@ function ProductList() {
                       <Card.Text className="category text-uppercase ms-2" style={{fontWeight: 'bold'}}>
                         {product.category}
                       </Card.Text>
+                    </Card.Body>
                       <Card.Footer className="price bg-white d-flex justify-content-around" align="center" style={{fontWeight: 'bold'}}>
                         <a className='btn btn-secondary'>${product.price}</a>
                         <a href='*' className='btn btn-primary'>Carrito</a>
                       </Card.Footer>
-                    </Card.Body>
                   </Card>
               </Col>
             ))}
@@ -54,11 +54,11 @@ function ProductList() {
                 <Card.Text className="category text-uppercase ms-2" style={{fontWeight: 'bold'}}>
                   {shorts.category}
                 </Card.Text>
+              </Card.Body>
                 <Card.Footer className="price bg-white d-flex justify-content-around" align="center" style={{fontWeight: 'bold'}}>
                   <a className='btn btn-secondary pt-1'>${shorts.price}</a>
                   <a href='*' className='btn btn-primary'>Carrito</a>
                 </Card.Footer>
-              </Card.Body>
             </Card>
           </Col>
         ))}

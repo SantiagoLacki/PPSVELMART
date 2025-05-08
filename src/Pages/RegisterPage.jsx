@@ -93,7 +93,7 @@ function RegisterPage() {
           />
           {errors.password && (<p className="text-red-500">Contraseña es requerida.</p>)}
 
-          <button type="submit" className="bg-sky-500 text-white px-4 py-2 rounded-md my-2 w-full">
+          <button type="submit" className="bg-blue-700 text-white hover:bg-sky-600 px-4 py-2 rounded-md my-2 w-full">
             Registrarse
           </button>
         </form>
