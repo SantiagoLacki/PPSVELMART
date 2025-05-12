@@ -10,12 +10,13 @@ import { FaCartPlus } from "react-icons/fa";
 import { useAuth } from "../../Context/AuthContext";
 
 function NavBar() {
-   const { isAuthenticated, logout, user } = useAuth();
-   const [authState, setAuthState] = useState(isAuthenticated);
+   // const { isAuthenticated, logout, user } = useAuth();
+   // const [authState, setAuthState] = useState(isAuthenticated);
 
-   useEffect(() => {
-      setAuthState(isAuthenticated);
-   }, [isAuthenticated]);
+   // useEffect(() => {
+   //    setAuthState(isAuthenticated);
+   // }, [isAuthenticated]);
+   const { isAuthenticated, logout, user } = useAuth();
 
    return (
       <>
@@ -40,7 +41,7 @@ function NavBar() {
 
                         <NavDropdown
                            title={
-                              authState ? (
+                              /*authState*/ isAuthenticated ? (
                                  <>
                                     <CgProfile size={26} /> {user?.username || "Usuario"}
                                  </>
@@ -50,14 +51,14 @@ function NavBar() {
                            }
                            id="logo-perfil-expansivo"
                         >
-                           {authState ? (
+                           {/*authState*/ isAuthenticated ? (
                               <>
                                  <NavDropdown.Item className="perfil-user">{user?.username || "Usuario"}</NavDropdown.Item>
                                  <NavDropdown.Item href="/profile">Perfil</NavDropdown.Item>
                                  <NavDropdown.Item
                                     onClick={() => {
                                        logout();
-                                       setAuthState(false); // 🔹 Asegurar que el estado cambia sin refrescar la página
+                                       // setAuthState(false); // 🔹 Asegurar que el estado cambia sin refrescar la página
                                     }}
                                  >
                                     Cerrar Sesión
