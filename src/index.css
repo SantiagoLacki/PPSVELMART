@@ -87,6 +87,7 @@ h1 {
 .img-carrusel {
   height: 500px;
   object-fit: cover;
+  object-position: center 28%;
   cursor: pointer;
 }
 
@@ -439,6 +440,13 @@ div .div__cantidad {
   font-size: 18px;
   font-weight: 500;
   font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.contact-img {
+  width: 350px;
+  height: auto;
+  border-radius: 15px;
+  object-fit: cover;
 }
 
 /* .contactus {

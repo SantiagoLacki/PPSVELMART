@@ -31,7 +31,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="https://www.instagram.com/" target="_blank">
+                <Link to="https://www.instagram.com/marderhombres/" target="_blank">
                   <AiFillInstagram className="" size={23} />
                 </Link>
               </li>

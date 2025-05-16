@@ -4,7 +4,8 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import velmart from "../../Images/velmart.png";
+// import velmart from "../../Images/velmart.png";
+import MarderLogo from "../../Images/MarderLogo.png";
 import { CgProfile } from "react-icons/cg";
 import { FaCartPlus } from "react-icons/fa";
 import { useAuth } from "../../Context/AuthContext";
@@ -23,13 +24,13 @@ function NavBar() {
          <Navbar expand="sm md lg" className="h-20 bg-body-tertiary shadow-lg">
             <Container fluid>
                <Navbar.Brand href="/">
-                  <img src={velmart} alt="logo" width="70" />
+                  <img src={MarderLogo} alt="logo" width="70" />
                </Navbar.Brand>
                <Navbar.Toggle aria-controls={`offcanvasNavbar-expand`} />
                <Navbar.Offcanvas id={`offcanvasNavbar-expand`} aria-labelledby={`offcanvasNavbarLabel-expand`} placement="end">
                   <Offcanvas.Header closeButton>
                      <Offcanvas.Title id={`offcanvasNavbarLabel-expand`}>
-                        <img src={velmart} alt="logo" width="45" />
+                        <img src={MarderLogo} alt="logo" width="45" />
                      </Offcanvas.Title>
                   </Offcanvas.Header>
                   <Offcanvas.Body>
