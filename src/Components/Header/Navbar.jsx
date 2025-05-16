@@ -21,7 +21,7 @@ function NavBar() {
 
    return (
       <>
-         <Navbar expand="sm md lg" className="h-20 bg-body-tertiary shadow-lg">
+         <Navbar expand="sm md lg" className="h-20 bg-secondary-subtle shadow-lg">
             <Container fluid>
                <Navbar.Brand href="/">
                   <img src={MarderLogo} alt="logo" width="70" />
@@ -34,7 +34,7 @@ function NavBar() {
                      </Offcanvas.Title>
                   </Offcanvas.Header>
                   <Offcanvas.Body>
-                     <Nav className="justify-content-end flex-grow-1 pe-5">
+                     <Nav className="justify-content-end flex-grow-1 pe-2">
                         <Nav.Link href="/" className="nav-link">Inicio</Nav.Link>
                         <Nav.Link href="/productos" className="nav-link">Productos</Nav.Link>
                         {/* <Nav.Link href="#"><FaCartPlus size={25} /></Nav.Link> */}
@@ -73,6 +73,10 @@ function NavBar() {
                            )}
                         </NavDropdown>
                      </Nav>
+                     <form class="d-flex pt-2 pe-4" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+                        <a href="*" class="btn btn-outline-secondary" type="submit">Buscar</a>
+                     </form>
                   </Offcanvas.Body>
                </Navbar.Offcanvas>
             </Container>

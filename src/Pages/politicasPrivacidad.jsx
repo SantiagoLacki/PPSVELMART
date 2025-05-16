@@ -1,15 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // 👈 Importa el componente Link
+import { Link } from 'react-router-dom';
 
 function PrivacyPolicy() {
   return (
     <div className="privacy-policy-container">
-      <div className="privacy-policy-content bg-light">
-        <h1>Política de Privacidad</h1>
+      <div className="privacy-policy-content bg-secondary-subtle">
+        <h1>Políticas de Privacidad</h1>
         <p className="last-updated">Última actualización: 30 Abril 2025</p>
 
         <h2>1. Introducción</h2>
-        <p>Bienvenido a Velmart (en adelante, "Velmart SRL", "nosotros", "nuestro" o "nos"). En Velmart SRL, nos tomamos muy en serio tu privacidad y nos comprometemos a proteger tu información personal. Esta Política de Privacidad describe cómo recopilamos, utilizamos, compartimos y protegemos tu información cuando visitas nuestro sitio web [Tu Dominio], utilizas nuestros servicios y compras nuestros productos de ropa deportiva.</p>
+        <p>Bienvenido a Marder-Hombres (en adelante, "Marder-Hombres", "nosotros", "nuestro" o "nos"). En Marder-Hombres, nos tomamos muy en serio tu privacidad y nos comprometemos a proteger tu información personal. Esta Política de Privacidad describe cómo recopilamos, utilizamos, compartimos y protegemos tu información cuando visitas nuestro sitio web [Tu Dominio], utilizas nuestros servicios y compras nuestros productos de **ropa formal y accesorios varios**.</p>
 
         <h2>2. Información que Recopilamos</h2>
         <p>Recopilamos diferentes tipos de información personal para poder ofrecerte nuestros productos y servicios de manera eficiente y personalizada. Esta información incluye:</p>
@@ -17,7 +17,7 @@ function PrivacyPolicy() {
           <li><strong>Información de Identificación Personal (PII):</strong> Nombre, dirección de correo electrónico, dirección postal, número de teléfono, fecha de nacimiento, sexo.</li>
           <li><strong>Información de Cuenta:</strong> Nombre de usuario, contraseña (de forma encriptada), historial de pedidos, preferencias de compra.</li>
           <li><strong>Información de Pago:</strong> Detalles de la tarjeta de crédito o débito, información de PayPal u otros métodos de pago (esta información se procesa a través de pasarelas de pago seguras y no se almacena directamente en nuestros servidores).</li>
-          <li><strong>Información Demográfica:</strong> Edad, intereses relacionados con el deporte y la actividad física.</li>
+          <li><strong>Información Demográfica:</strong> Edad, intereses relacionados con **ropa formal y accesorios** en general.</li>
           <li><strong>Información Técnica:</strong> Dirección IP, tipo de navegador, sistema operativo, datos de registro del servidor, información del dispositivo móvil.</li>
           <li><strong>Información de Uso:</strong> Páginas visitadas, productos vistos, tiempo de navegación, enlaces en los que haces clic.</li>
           <li><strong>Comunicaciones:</strong> Registros de nuestras comunicaciones contigo (correos electrónicos, chats, llamadas).</li>
@@ -26,13 +26,13 @@ function PrivacyPolicy() {
         <h2>3. Cómo Utilizamos tu Información</h2>
         <p>Utilizamos tu información personal para diversos fines, incluyendo:</p>
         <ul>
-          <li>Procesar y gestionar tus pedidos, incluyendo el envío y la facturación.</li>
+          <li>Procesar y gestionar tus pedidos de **ropa formal y accesorios**, incluyendo el envío y la facturación.</li>
           <li>Crear y administrar tu cuenta de usuario.</li>
-          <li>Personalizar tu experiencia de compra, mostrándote productos y ofertas relevantes.</li>
-          <li>Enviarte comunicaciones de marketing y promocionales (con tu consentimiento, cuando sea necesario).</li>
+          <li>Personalizar tu experiencia de compra, mostrándote productos y ofertas relevantes de **ropa formal y accesorios**.</li>
+          <li>Enviarte comunicaciones de marketing y promocionales (con tu consentimiento, cuando sea necesario) sobre **nuestras colecciones de ropa formal, accesorios y eventos especiales**.</li>
           <li>Mejorar nuestro sitio web, productos y servicios.</li>
           <li>Responder a tus consultas y brindarte soporte al cliente.</li>
-          <li>Realizar análisis y estudios de mercado.</li>
+          <li>Realizar análisis y estudios de mercado relacionados con las tendencias en **ropa formal y accesorios**.</li>
           <li>Detectar y prevenir fraudes y actividades ilegales.</li>
           <li>Cumplir con nuestras obligaciones legales y regulatorias.</li>
         </ul>
@@ -40,7 +40,7 @@ function PrivacyPolicy() {
         <h2>4. Compartir tu Información</h2>
         <p>Podemos compartir tu información personal con terceros en las siguientes circunstancias:</p>
         <ul>
-          <li><strong>Proveedores de Servicios:</strong> Empresas que nos ayudan con operaciones como procesamiento de pagos, envío, marketing, análisis de datos, alojamiento web y servicio al cliente. Estos proveedores tienen acceso a tu información solo para realizar sus tareas en nuestro nombre y están obligados a protegerla.</li>
+          <li><strong>Proveedores de Servicios:</strong> Empresas que nos ayudan con operaciones como procesamiento de pagos, envío de tus pedidos de **ropa formal y accesorios**, marketing, análisis de datos, alojamiento web y servicio al cliente. Estos proveedores tienen acceso a tu información solo para realizar sus tareas en nuestro nombre y están obligados a protegerla.</li>
           <li><strong>Socios Comerciales:</strong> En algunos casos, podemos ofrecer servicios o promociones conjuntas con socios comerciales. Si participas en estas ofertas, podemos compartir tu información con esos socios.</li>
           <li><strong>Cumplimiento Legal:</strong> Podemos divulgar tu información si así lo exige la ley, una orden judicial o un proceso legal.</li>
           <li><strong>Transferencias de Negocio:</strong> En caso de una fusión, adquisición o venta de todos o parte de nuestros activos, tu información podría ser transferida a la entidad adquirente.</li>
@@ -57,7 +57,7 @@ function PrivacyPolicy() {
           <li>El derecho a acceder a la información personal que tenemos sobre ti.</li>
           <li>El derecho a rectificar información personal inexacta o incompleta.</li>
           <li>El derecho a solicitar la eliminación de tu información personal (en ciertas circunstancias).</li>
-          <li>El derecho a oponerte al procesamiento de tu información personal para ciertos fines (como el marketing directo).</li>
+          <li>El derecho a oponerte al procesamiento de tu información personal para ciertos fines (como el marketing directo de **nuestra ropa formal y accesorios**).</li>
           <li>El derecho a restringir el procesamiento de tu información personal (en ciertas circunstancias).</li>
           <li>El derecho a la portabilidad de tus datos.</li>
           <li>El derecho a retirar tu consentimiento en cualquier momento (cuando el procesamiento se basa en el consentimiento).</li>
@@ -65,7 +65,7 @@ function PrivacyPolicy() {
         <p>Para ejercer cualquiera de estos derechos, por favor contáctanos a través de los datos proporcionados en la sección "Contacto" de esta Política de Privacidad.</p>
 
         <h2>7. Cookies y Tecnologías Similares</h2>
-        <p>Utilizamos cookies y otras tecnologías de seguimiento (como píxeles y balizas web) para mejorar la funcionalidad de nuestro sitio web, analizar el comportamiento del usuario y personalizar tu experiencia. Puedes gestionar tus preferencias de cookies a través de la configuración de tu navegador.</p>
+        <p>Utilizamos cookies y otras tecnologías de seguimiento (como píxeles y balizas web) para mejorar la funcionalidad de nuestro sitio web, analizar el comportamiento del usuario y personalizar tu experiencia de compra de **ropa formal y accesorios**. Puedes gestionar tus preferencias de cookies a través de la configuración de tu navegador.</p>
         <p>Para obtener más información sobre cómo utilizamos las cookies, por favor consulta nuestra <Link to="/politica-de-cookies" target="_blank" rel="noopener noreferrer">Política de Cookies</Link>.</p>
 
         <h2>8. Enlaces a Otros Sitios Web</h2>
@@ -80,12 +80,12 @@ function PrivacyPolicy() {
         <h2>11. Contacto</h2>
         <p>Si tienes alguna pregunta, comentario o inquietud sobre esta Política de Privacidad o nuestras prácticas de privacidad, por favor contáctanos a través de:</p>
         <ul>
-          <li><strong>Correo Electrónico:</strong> Velmartsrl@gmail.com</li>
-          <li><strong>Dirección Postal:</strong> Rivadavia 213, San Miguel de Tucuman - Tucuman</li>
+          <li><strong>Correo Electrónico:</strong> marderhombres@gmail.com</li>
+          <li><strong>Dirección Postal:</strong> Crisostomo Alvarez 3055, San Miguel de Tucuman - Tucuman</li>
           <li><strong>Formulario de Contacto:</strong> <a href="/contacto">Formulario de Contacto</a></li>
         </ul>
 
-        <p>Gracias por confiar en Velmart SRL.</p>
+        <p>Gracias por confiar en Marder-Hombres.</p>
       </div>
     </div>
   );

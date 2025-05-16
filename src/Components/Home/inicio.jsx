@@ -1,6 +1,4 @@
 import React from 'react';
-import Portada from "../../Images/images-_5_.jpg";
-// import {Link} from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 import Carrusel from "../../Components/Home/carousel";
 import 'bootstrap/dist/css/bootstrap.min.css';
