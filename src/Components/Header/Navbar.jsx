@@ -73,9 +73,9 @@ function NavBar() {
                            )}
                         </NavDropdown>
                      </Nav>
-                     <form class="d-flex pt-2 pe-4" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                        <a href="*" class="btn btn-outline-secondary" type="submit">Buscar</a>
+                     <form className="d-flex pt-2 pe-4" role="search">
+                        <input className="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"/>
+                        <a href="*" className="btn btn-outline-secondary" type="submit">Buscar</a>
                      </form>
                   </Offcanvas.Body>
                </Navbar.Offcanvas>

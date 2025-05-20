@@ -7,10 +7,12 @@ import data from "../../Data.js/";
 const ProductosLista = () => {
   const [productos, setProductos] = useState([]);
   const [shorts, setShorts]= useState([]);
+  const [cintos, setCintos]= useState([]);
 
   useEffect(() => {
     setProductos(data.items);
     setShorts(data.shorts);
+    setCintos(data.cintos);
   }, []);
 
   // const value = useContext(DataContext);
@@ -34,6 +36,7 @@ const ProductosLista = () => {
                 cantidad={producto.cantidad}
               />
             ))}
+
             {shorts.map((short) => (
               <Productoitem
                 key={short.id}
@@ -43,6 +46,18 @@ const ProductosLista = () => {
                 image={short.image}
                 category={short.category}
                 cantidad={short.cantidad}
+              />
+            ))}
+
+            {cintos.map((cinto) => (
+              <Productoitem
+                key={cinto.id}
+                id={cinto.id}
+                title={cinto.title}
+                price={cinto.price}
+                image={cinto.image}
+                category={cinto.category}
+                cantidad={cinto.cantidad}
               />
             ))}
       </div>
