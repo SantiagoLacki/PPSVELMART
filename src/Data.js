@@ -48,28 +48,28 @@ const data = {
       title: "Camisa - Blanca",
       price: 120900,
       image: 'https://ucarecdn.com/8a4a9e5f-8d08-4b8b-a15d-7f721fdfe7e0/descarga.jpeg',
-      category: "Polo",
+      category: "Tie Bar",
     },
     {
       id: 2,
       title: "Camisa - Negra",
       price: 115999,
       image: 'https://ucarecdn.com/629d5a6e-f2c5-4de7-ae92-511ca68e9b7d/Czarnataliowanakoszula.jpeg',
-      category: "Polo",
+      category: "Tie Bar",
     },
     {
       id: 3,
       title: "Camisa - Celeste",
       price: 117830,
       image: 'https://ucarecdn.com/56bff524-322c-4bd2-9ed8-955f032b7e25/SkyBluePlainDesignerFormalShirt.jpeg',
-      category: "Polo",
+      category: "Tie Bar",
     },
     {
       id: 4,
       title: "Camisa - Azul",
       price: 112399,
       image: 'https://ucarecdn.com/b91499b1-09eb-4260-978b-13191a09c68d/NavyPlainDesignerSatinFormalShirt.jpeg',
-      category: "Polo",
+      category: "Tie Bar",
     }
   ],
 

@@ -1,26 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react"; // Ya no necesitamos useState para email/password/errors locales
+import { useForm } from "react-hook-form"; // Importar useForm
 import { useAuth } from "../Context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 
 function LoginPage() {
-  const { login, isAuthenticated } = useAuth();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState([]);
+  const { register, handleSubmit, formState: { errors } } = useForm(); // Hook de React Hook Form
+  const { login, isAuthenticated, errors: loginErrors } = useAuth(); // Renombramos errors a loginErrors para evitar conflicto
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const userData = { email, password };
-
-    const response = await login(userData);
-
-    if (response && response.errors) {
-      setErrors(response.errors);
-    } else {
-      navigate("/"); // Redirige a la página de inicio si todo está bien
-    }
-  };
+  const onSubmit = handleSubmit(async (values) => {
+    // values contendrá email y password automáticamente de React Hook Form
+    await login(values);
+  });
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -32,38 +23,35 @@ function LoginPage() {
     <div className="flex justify-center items-center min-h-screen">
       <div className="bg-zinc-800 p-8 rounded-lg shadow-md w-96">
         <h2 className="text-2xl text-white font-semibold mb-4">Iniciar Sesión</h2>
-        
-        {errors.length > 0 && (
-          <div className="bg-red-500 text-white p-2 rounded mb-4">
-            {errors.map((error, idx) => (
-              <p key={idx}>{error}</p>
-            ))}
+
+        {/* Mensajes de error generales del backend, similar a RegisterPage */}
+        {loginErrors.map((error, i) => (
+          <div className="bg-red-500 p-2 text-white my-2 rounded-md" key={i}>
+            {error}
           </div>
-        )}
-        
-        <form onSubmit={handleSubmit}>
+        ))}
+
+        <form onSubmit={onSubmit}>
           <div className="mb-4">
-            {/* <label htmlFor="email" className="block text-sm font-medium text-white">Email</label> */}
             <input
               type="email"
-              id="email"
+              {...register('email', { required: 'El Correo Electrónico es requerido.' })} // Aplicar register
               className="w-full bg-zinc-700 text-white p-2 rounded mt-1"
               placeholder="E-mail"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
             />
+            {/* Mensaje de error específico para el input */}
+            {errors.email && (<p className="text-red-500 text-sm mt-1">{errors.email.message}</p>)}
           </div>
 
           <div className="mb-6">
-            {/* <label htmlFor="password" className="block text-white text-sm font-medium text-gray-700">Contraseña</label> */}
             <input
               type="password"
-              id="password"
+              {...register('password', { required: 'La Contraseña es requerida.' })} // Aplicar register
               className="w-full bg-zinc-700 p-2 text-white rounded mt-1"
               placeholder="Contraseña"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
             />
+            {/* Mensaje de error específico para el input */}
+            {errors.password && (<p className="text-red-500 text-sm mt-1">{errors.password.message}</p>)}
           </div>
 
           <button
@@ -72,10 +60,9 @@ function LoginPage() {
           >
             Iniciar sesión
           </button>
-          
         </form>
         <p className="flex gap-x-2 justify-center text-white mt-3">
-          ¿No tienes una cuenta? <Link to="/register" className="text-blue-600">Registrate aqui</Link>
+          ¿No tienes una cuenta? <Link to="/register" className="text-blue-600">Regístrate aquí</Link>
         </p>
       </div>
     </div>
@@ -83,6 +70,93 @@ function LoginPage() {
 }
 
 export default LoginPage;
+
+
+// import React, { useState, useEffect } from "react";
+// import { useAuth } from "../Context/AuthContext";
+// import { useNavigate, Link } from "react-router-dom";
+
+// function LoginPage() {
+//   const { login, isAuthenticated } = useAuth();
+//   const [email, setEmail] = useState("");
+//   const [password, setPassword] = useState("");
+//   const [errors, setErrors] = useState([]);
+//   const navigate = useNavigate();
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     const userData = { email, password };
+
+//     const response = await login(userData);
+
+//     if (response && response.errors) {
+//       setErrors(response.errors);
+//     } else {
+//       navigate("/"); // Redirige a la página de inicio si todo está bien
+//     }
+//   };
+
+//   useEffect(() => {
+//     if (isAuthenticated) {
+//       navigate("/"); // Si ya está autenticado, redirigir al inicio
+//     }
+//   }, [isAuthenticated, navigate]);
+
+//   return (
+//     <div className="flex justify-center items-center min-h-screen">
+//       <div className="bg-zinc-800 p-8 rounded-lg shadow-md w-96">
+//         <h2 className="text-2xl text-white font-semibold mb-4">Iniciar Sesión</h2>
+        
+//         {errors.length > 0 && (
+//           <div className="bg-red-500 text-white p-2 rounded mb-4">
+//             {errors.map((error, idx) => (
+//               <p key={idx}>{error}</p>
+//             ))}
+//           </div>
+//         )}
+        
+//         <form onSubmit={handleSubmit}>
+//           <div className="mb-4">
+//             {/* <label htmlFor="email" className="block text-sm font-medium text-white">Email</label> */}
+//             <input
+//               type="email"
+//               id="email"
+//               className="w-full bg-zinc-700 text-white p-2 rounded mt-1"
+//               placeholder="E-mail"
+//               value={email}
+//               onChange={(e) => setEmail(e.target.value)}
+//             />
+//           </div>
+
+//           <div className="mb-6">
+//             {/* <label htmlFor="password" className="block text-white text-sm font-medium text-gray-700">Contraseña</label> */}
+//             <input
+//               type="password"
+//               id="password"
+//               className="w-full bg-zinc-700 p-2 text-white rounded mt-1"
+//               placeholder="Contraseña"
+//               value={password}
+//               onChange={(e) => setPassword(e.target.value)}
+//             />
+//           </div>
+
+//           <button
+//             type="submit"
+//             className="w-full py-2 bg-blue-700 text-white rounded hover:bg-sky-500"
+//           >
+//             Iniciar sesión
+//           </button>
+          
+//         </form>
+//         <p className="flex gap-x-2 justify-center text-white mt-3">
+//           ¿No tienes una cuenta? <Link to="/register" className="text-blue-600">Registrate aqui</Link>
+//         </p>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default LoginPage;
 
 
 
