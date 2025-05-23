@@ -38,7 +38,7 @@ function NavBar() {
                         <Nav.Link href="/" className="nav-link">Inicio</Nav.Link>
                         <Nav.Link href="/productos" className="nav-link">Productos</Nav.Link>
                         {/* <Nav.Link href="#"><FaCartPlus size={25} /></Nav.Link> */}
-                        <Nav.Link href="*"><FaCartPlus size={25} /></Nav.Link>
+                        <Nav.Link href="/carrito"><FaCartPlus size={25} /></Nav.Link>
 
                         <NavDropdown
                            title={

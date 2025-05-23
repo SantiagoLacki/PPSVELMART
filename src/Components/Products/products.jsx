@@ -22,7 +22,7 @@ const ProductosLista = () => {
   return (
     <>
       <div>
-        <h1 className="titulo-prod p-5 text-center fw-bold text-decoration-underline underline-offset-8"> PRODUCTOS </h1>
+        <h1 className="titulo-prod p-5 text-center fw-bold text-decoration-underline underline-offset-8"> CATALOGO </h1>
       </div>
       <div className="container productos">
             {productos.map((producto) => (

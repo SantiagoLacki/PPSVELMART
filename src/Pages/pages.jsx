@@ -12,6 +12,7 @@ import NotFound from './error404';
 import PrivacyPolicy from './politicasPrivacidad';
 import TermsAndConditions from './terminosCondiciones';
 import SobreNosotros from './aboutUs';
+import Carrito from './pageCarrito';
 
 const Paginas = () => {
     return (
@@ -22,11 +23,11 @@ const Paginas = () => {
                 <Route path='/login' element={<LoginPage/>}/>
                 <Route path='/register' element={<RegisterPage/>}/>
                 <Route path='/contacto' element={<Contacto/>}/>
+                <Route path='/carrito' element={<Carrito/>}/>
                 <Route path="*" element={<NotFound />} />
                 <Route path="/politicas-de-privacidad" element={<PrivacyPolicy />} />
                 <Route path="/terminos-y-condiciones" element={<TermsAndConditions />} />
                 <Route path="/nosotros" element={<SobreNosotros />} />
-
                 <Route element={<ProtectedRoute/>}>
                     <Route path='/profile' element={<ProfilePage/>}/>
                 </Route>

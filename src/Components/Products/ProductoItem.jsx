@@ -2,6 +2,7 @@ import React, { useContext} from 'react'
 import { Link } from "react-router-dom";
 import { DataContext } from '../../Context/Dataprovider';
 import Card from 'react-bootstrap/Card';
+import { FaCartPlus } from "react-icons/fa";
 
 
 const Productoitem = ({
@@ -28,7 +29,7 @@ const Productoitem = ({
         </Card.Body>
         <Card.Footer className="price bg-white d-flex justify-content-around" align="center" style={{fontWeight: 'bold'}}>
           <a className='btn btn-secondary pt-1'>${price}</a>
-          <a href='*' className='btn btn-primary'>Añadir al Carrito</a>
+          <a href='*' className='btn btn-primary content-center w-25 d-flex justify-center align-items-center'><FaCartPlus/></a>
         </Card.Footer>
       </Card>
     </div>

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Card } from 'react-bootstrap';
 import data from '.././Data';
 import { Container, Row, Col } from 'react-bootstrap';
+import { FaCartPlus } from "react-icons/fa";
+
 
 function ProductList() {
   const [randomProducts, setRandomProducts] = useState([]);
@@ -43,7 +45,7 @@ function ProductList() {
                     </Card.Body>
                       <Card.Footer className="price bg-white d-flex justify-content-around" align="center" style={{fontWeight: 'bold'}}>
                         <a className='btn btn-secondary'>${product.price}</a>
-                        <a href='*' className='btn btn-primary'>Añadir al Carrito</a>
+                        <a href='*' className='btn btn-primary content-center w-25 d-flex justify-center align-items-center'><FaCartPlus/></a>
                       </Card.Footer>
                   </Card>
               </Col>
@@ -65,7 +67,7 @@ function ProductList() {
                 </Card.Body>
                   <Card.Footer className="price bg-white d-flex justify-content-around" align="center" style={{fontWeight: 'bold'}}>
                     <a className='btn btn-secondary pt-1'>${shorts.price}</a>
-                    <a href='*' className='btn btn-primary'>Añadir al Carrito</a>
+                    <a href='*' className='btn btn-primary content-center w-25 d-flex justify-center align-items-center'><FaCartPlus/></a>
                   </Card.Footer>
               </Card>
             </Col>
@@ -88,7 +90,7 @@ function ProductList() {
                 </Card.Body>
                   <Card.Footer className="price bg-white d-flex justify-content-around" align="center" style={{fontWeight: 'bold'}}>
                     <a className='btn btn-secondary pt-1'>${cintos.price}</a>
-                    <a href='*' className='btn btn-primary'>Añadir al Carrito</a>
+                    <a href='*' className='btn btn-primary content-center w-25 d-flex justify-center align-items-center'><FaCartPlus/></a>
                   </Card.Footer>
               </Card>
             </Col>
