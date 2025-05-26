@@ -30,8 +30,9 @@ function ProductList() {
 
   return (
     <Container className='container container-prod py-10 px-0'>
+        <h1 className='titulo-prod pt-4 pb-3 text-center fw-bold text-decoration-underline underline-offset-8'> Nuestras Categorias </h1>
         <div className='bg-secondary-subtle py-4 px-5 mt-5 rounded'>
-          <h2 className='titulo-prod my-3 ps-3'>Nuestros trajes</h2>
+          <h2 className='titulo-prod my-3 ps-3'>Trajes</h2>
           <Row>
             {randomProducts.map((product) => ( 
               <Col className="my-1 px-1" key={product.id} xs={12} sm={6} md={4} lg={3}>
@@ -44,8 +45,8 @@ function ProductList() {
                       </Card.Text>
                     </Card.Body>
                       <Card.Footer className="price bg-white d-flex justify-content-around" align="center" style={{fontWeight: 'bold'}}>
-                        <a className='btn btn-secondary'>${product.price}</a>
-                        <a href='*' className='btn btn-primary content-center w-25 d-flex justify-center align-items-center'><FaCartPlus/></a>
+                        <a className='btn btn-secondary pt-1 cursor-default'>${product.price}</a>
+                        <a href='/carrito' className='btn btn-primary content-center w-25 d-flex justify-center align-items-center'><FaCartPlus/></a>
                       </Card.Footer>
                   </Card>
               </Col>
@@ -66,8 +67,8 @@ function ProductList() {
                   </Card.Text>
                 </Card.Body>
                   <Card.Footer className="price bg-white d-flex justify-content-around" align="center" style={{fontWeight: 'bold'}}>
-                    <a className='btn btn-secondary pt-1'>${shorts.price}</a>
-                    <a href='*' className='btn btn-primary content-center w-25 d-flex justify-center align-items-center'><FaCartPlus/></a>
+                    <a className='btn btn-secondary pt-1 cursor-default'>${shorts.price}</a>
+                    <a href='/carrito' className='btn btn-primary content-center w-25 d-flex justify-center align-items-center'><FaCartPlus/></a>
                   </Card.Footer>
               </Card>
             </Col>
@@ -76,7 +77,7 @@ function ProductList() {
       </div>
 
       <div className='bg-secondary-subtle py-4 px-5 mt-5 rounded'>
-        <h2 className='titulo-prod my-3 ps-3'> Cintos </h2>
+        <h2 className='titulo-prod my-3 ps-3'> Accesorios </h2>
         <Row>
           {randomCintos.map((cintos) => ( 
             <Col className='my-2 px-1' key={cintos.id} xs={12} sm={6} md={4} lg={3}>
@@ -89,8 +90,8 @@ function ProductList() {
                   </Card.Text>
                 </Card.Body>
                   <Card.Footer className="price bg-white d-flex justify-content-around" align="center" style={{fontWeight: 'bold'}}>
-                    <a className='btn btn-secondary pt-1'>${cintos.price}</a>
-                    <a href='*' className='btn btn-primary content-center w-25 d-flex justify-center align-items-center'><FaCartPlus/></a>
+                    <a className='btn btn-secondary pt-1 cursor-default'>${cintos.price}</a>
+                    <a href='/carrito' className='btn btn-primary content-center w-25 d-flex justify-center align-items-center'><FaCartPlus/></a>
                   </Card.Footer>
               </Card>
             </Col>

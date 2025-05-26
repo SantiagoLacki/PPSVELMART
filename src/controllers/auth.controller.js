@@ -36,7 +36,7 @@ export const register = async (req, res) => {
     res.status(201).json({ message: "Usuario registrado. Verifica tu correo antes de iniciar sesión." });
 
   } catch (error) {
-    console.error("Error en el registro:", error); // 👈 Imprimirá el error en la terminal
+    console.error("Error en el registro:", error);
     res.status(500).json({ message: "Error en el servidor" });
   }
 };
@@ -63,7 +63,10 @@ export const login = async (req, res) => {
       sameSite: "Lax",
     });
 
-    res.json({ message: "Login exitoso", token, user: { id: user._id, email: user.email } });
+    // 👇 AQUÍ ESTÁ LA MODIFICACIÓN CLAVE: AÑADIMOS 'username' 👇
+    res.json({ message: "Login exitoso", token, user: { id: user._id, email: user.email, username: user.username } });
+    // 👆 AHORA EL FRONTEND RECIBIRÁ EL NOMBRE DE USUARIO 👆
+
   } catch (error) {
     console.error("Error en login:", error);
     res.status(500).json({ message: "Error en el servidor." });
@@ -107,17 +110,20 @@ export const verifyEmail = async (req, res) => {
 };
 
 export const logout = (req, res) => {
-  res.clearCookie("token");
-  return res.sendStatus(200);
+  res.cookie("token", "", { // Establece el token a vacío
+    expires: new Date(0), // Con una fecha de expiración en el pasado (esto la invalida)
+    httpOnly: true,
+    secure: false, // ¡IMPORTANTE! Debe coincidir con tu login. Si estás en HTTP, es false.
+    sameSite: "Lax", // ¡IMPORTANTE! Debe coincidir con tu login.
+    path: '/', // ¡IMPORTANTE! Debe coincidir con tu login.
+    domain: 'localhost' // ¡IMPORTANTE! Si tu frontend está en localhost y tu backend también, esto es crucial.
+  });
+  return res.sendStatus(200); // Envía una respuesta de éxito (200 OK)
 };
 
 export const profile = (req, res) => {
   res.json({ message: "Perfil del usuario." });
 };
-
-// export const verifyToken = (req, res) => {
-//   res.json({ message: "Token válido." });
-// };
 
 export const verifyToken = async (req, res) => {
   try {
@@ -150,10 +156,6 @@ export const checkVerificationStatus = async (req, res) => {
     res.status(500).json({ message: "Error verificando el estado del usuario" });
   }
 };
-
-
-
-
 
 
 

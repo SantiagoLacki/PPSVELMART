@@ -1,7 +1,7 @@
 import { createContext, useState, useContext, useEffect } from 'react';
-import { registerRequest, loginRequest, verifyTokenRequest } from "../api/auth.js";
+import { registerRequest, loginRequest, verifyTokenRequest, logoutRequest } from "../api/auth.js";
 import Cookies from "js-cookie";
-import axios from "axios";
+import axios from "axios"; // Asegúrate de que axios esté importado, aunque no se use directamente aquí, es una buena práctica.
 
 export const AuthContext = createContext();
 
@@ -16,15 +16,24 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState([]); // Este es el array de errores que se muestra
   const [loading, setLoading] = useState(true);
 
   const signup = async (userData) => {
     try {
       const res = await registerRequest(userData);
-      return res.data;
+      setErrors([]); // Limpiar errores previos si el registro fue exitoso
+      return { success: true, data: res.data };
     } catch (error) {
-      return null;
+      console.error("Error en el registro:", error.response?.data || error.message);
+      if (error.response?.data?.message) {
+        setErrors([error.response.data.message]);
+      } else if (Array.isArray(error.response?.data)) {
+        setErrors(error.response.data);
+      } else {
+        setErrors(["Ocurrió un error inesperado durante el registro."]);
+      }
+      return { success: false, errors: errors };
     }
   };
 
@@ -32,62 +41,93 @@ export const AuthProvider = ({ children }) => {
     try {
       const res = await loginRequest(userData);
       console.log("Respuesta completa del backend al iniciar sesión:", res.data);
-  
+
       if (!res.data.token) {
         console.error("❌ No se recibió token en la respuesta del backend");
-        return;
+        setErrors(["No se recibió token del servidor. Intente de nuevo."]);
+        setIsAuthenticated(false);
+        setUser(null);
+        return { errors: ["No se recibió token."] };
       }
-  
-      // Guardar el token en las cookies
-      Cookies.set("token", res.data.token, { expires: 1 });
+
+      // MODIFICACIÓN: Añadir 'expires' y 'path' a la cookie para persistencia
+      Cookies.set("token", res.data.token, { expires: 1, path: '/' }); 
       setIsAuthenticated(true);
-      setUser(res.data.user);
-      return { user: res.data.user, token: res.data.token };
+      setUser(res.data.user); // Ahora esperamos que res.data.user incluya username
+      setErrors([]); // Limpiar errores previos si el login fue exitoso
+
+      return { success: true, user: res.data.user, token: res.data.token };
+
     } catch (error) {
       console.error("Error en login:", error.response?.data || error.message);
       setIsAuthenticated(false);
       setUser(null);
-      return { errors: ["Error al iniciar sesión"] };
+      
+      // MODIFICACIÓN: para mostrar mensajes de error específicos del backend
+      if (error.response?.data?.message) {
+        setErrors([error.response.data.message]);
+      } else if (Array.isArray(error.response?.data)) {
+        setErrors(error.response.data);
+      } else {
+        setErrors(["Ocurrió un error inesperado al iniciar sesión."]);
+      }
+      return { success: false, errors: errors };
     }
   };
 
-  const logout = () => {
-    Cookies.remove("token");
-    setIsAuthenticated(false);
-    setUser(null);
+  const logout = async () => {
+    try {
+      await logoutRequest(); 
+      console.log("Logout: Solicitud de cierre de sesión enviada al backend.");
+    } catch (error) {
+      console.error("Logout: Error al enviar solicitud de cierre de sesión al backend:", error);
+    } finally {
+      // MODIFICACIÓN: Asegurar el path al eliminar la cookie
+      Cookies.remove("token", { path: '/' }); 
+      setIsAuthenticated(false);
+      setUser(null);
+      console.log("Logout: Estado del frontend limpiado.");
+    }
   };
 
   useEffect(() => {
     async function checkLogin() {
-      const token = Cookies.get("token");
-      if (!token) {
-        console.log("No hay token, usuario no autenticado");
-        setIsAuthenticated(false);
-        setUser(null);
-        setLoading(false);
-        return;
-      }
-
       try {
-        const res = await verifyTokenRequest(token);
-        console.log("Respuesta del backend al verificar token:", res.data);
+        setLoading(true); // Indica que la carga está activa durante la verificación
+        const res = await verifyTokenRequest(); 
+        console.log("Respuesta del backend al verificar token:", res ? res.data : null);
 
-        if (res.data && res.data.user) {
+        if (res && res.data && res.data.user) {
           setIsAuthenticated(true);
           setUser(res.data.user);
+          console.log("Verificación exitosa. Usuario:", res.data.user);
         } else {
           setIsAuthenticated(false);
           setUser(null);
+          console.log("Verificación fallida o sin usuario.");
         }
       } catch (error) {
-        console.error("Error al verificar token:", error.message);
+        console.error("Error al verificar token:", error.response?.data || error.message);
         setIsAuthenticated(false);
         setUser(null);
+        // MODIFICACIÓN: Asegurar el path al eliminar la cookie
+        Cookies.remove("token", { path: '/' }); 
+      } finally {
+        setLoading(false); // La carga ha terminado
       }
-      setLoading(false);
     }
     checkLogin();
   }, []);
+
+  // MODIFICACIÓN: Limpia los errores después de un tiempo
+  useEffect(() => {
+    if (errors.length > 0) {
+      const timer = setTimeout(() => {
+        setErrors([]);
+      }, 5000); // Los errores desaparecen después de 5 segundos
+      return () => clearTimeout(timer);
+    }
+  }, [errors]);
 
   return (
     <AuthContext.Provider value={{
@@ -103,113 +143,3 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
-
-
-
-
-
-
-// import { createContext, useState, useContext, useEffect } from 'react';
-// import { registerRequest, loginRequest, verifyTokenRequest } from "../api/auth.js";
-// import Cookies from "js-cookie";
-
-// export const AuthContext = createContext();
-
-// export const useAuth = () => {
-//   const context = useContext(AuthContext);
-//   if (!context) {
-//     throw new Error("useAuth debe estar dentro de un AuthProvider");
-//   }
-//   return context;
-// };
-
-// export const AuthProvider = ({ children }) => {
-//   const [user, setUser] = useState(null);
-//   const [isAuthenticated, setIsAuthenticated] = useState(false);
-//   const [errors, setErrors] = useState([]);
-//   const [loading, setLoading] = useState(true);
-
-//   const signup = async (userData) => {
-//     try {
-//       const res = await registerRequest(userData);
-//       console.log('Respuesta del backend:', res); // Para depuración
-//       return res.data;
-//     } catch (error) {
-//       console.error('Error en el registro:', error.response?.data || error.message);
-//       return null;
-//     }
-//   };
-
-//   const singIn = async (user) => {
-//     try {
-//       const res = await loginRequest(user);
-//       console.log(res);
-//       setIsAuthenticated(true);
-//       setUser(res.data);
-//     } catch (error) {
-//       if (Array.isArray(error.response.data)) {
-//         return setErrors(error.response.data);
-//       }
-//       setErrors([error.response.data.message]);
-//     }
-//   }
-
-//   const logout = () => {
-//     Cookies.remove("token");
-//     setIsAuthenticated(false);
-//     setUser(null);
-//   }
-
-//   useEffect(() => {
-//     if (errors.length > 0) {
-//       const timer = setTimeout(() => {
-//         setErrors([]);
-//       }, 6000);
-//       return () => clearTimeout(timer);
-//     }
-//   }, [errors]);
-
-//   useEffect(() => {
-//     async function checkLogin() {
-//       const cookies = Cookies.get();
-
-//       if (!cookies.token) {
-//         setIsAuthenticated(false);
-//         setLoading(false);
-//         return setUser(null);
-//       }
-
-//       try {
-//         const res = await verifyTokenRequest(cookies.token);
-//         if (!res.data) {
-//           setIsAuthenticated(false);
-//           setLoading(false);
-//           return;
-//         }
-
-//         setIsAuthenticated(true);
-//         setUser(res.data);
-//         setLoading(false);
-//       } catch (error) {
-//         setIsAuthenticated(false);
-//         setUser(null);
-//         setLoading(false);
-//       }
-//     }
-//     checkLogin();
-//   }, []);
-
-//   return (
-//     <AuthContext.Provider value={{
-//       signup,
-//       singIn,
-//       logout,
-//       loading,
-//       user,
-//       isAuthenticated,
-//       errors,
-//     }}>
-//       {children}
-//     </AuthContext.Provider>
-//   )
-// };

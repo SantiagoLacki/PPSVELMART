@@ -21,13 +21,8 @@ const Footer = () => {
             <h5 className="mb-2">Nuestras Redes</h5>
             <ul className="d-flex justify-content-center align-items-center">
               <li>
-                <Link to="https://x.com/?lang=es" target="_blank">
-                  <AiFillTwitterCircle className="" size={23} />
-                </Link>
-              </li>
-              <li>
-                <Link to="https://www.facebook.com/?locale=es_LA" target="_blank">
-                  <AiFillFacebook className="mx-2" size={23} />
+                <Link to="https://www.facebook.com/share/1FCTGoKT14/?mibextid=wwXIfr" target="_blank">
+                  <AiFillFacebook className="me-2" size={23} />
                 </Link>
               </li>
               <li>
