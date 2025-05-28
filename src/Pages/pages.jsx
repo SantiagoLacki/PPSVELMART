@@ -32,7 +32,7 @@ const Paginas = () => {
                 <Route path="/nosotros" element={<SobreNosotros />} />
                 {/* Rutas protegidas */}
                 <Route element={<ProtectedRoute/>}>
-                    <Route path='/profile' element={<ProfilePage/>}/>
+                    <Route path='/perfil' element={<ProfilePage/>}/>
                 </Route>
             </Routes>
         // </AuthProvider>

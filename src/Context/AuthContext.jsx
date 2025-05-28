@@ -1,7 +1,7 @@
 import { createContext, useState, useContext, useEffect } from 'react';
 import { registerRequest, loginRequest, verifyTokenRequest, logoutRequest } from "../api/auth.js";
 import Cookies from "js-cookie";
-import axios from "axios"; // Asegúrate de que axios esté importado, aunque no se use directamente aquí, es una buena práctica.
+import axios from "axios"; // Asegúrate de que axios esté importado
 
 export const AuthContext = createContext();
 
@@ -23,9 +23,11 @@ export const AuthProvider = ({ children }) => {
     try {
       const res = await registerRequest(userData);
       setErrors([]); // Limpiar errores previos si el registro fue exitoso
-      return { success: true, data: res.data };
+      console.log("Respuesta de registro (AuthContext):", res.data); // ✅ Añadido para depuración
+      // ✅ Devolvemos la data completa del backend, incluyendo el mensaje y cualquier otro status
+      return { success: true, data: res.data, message: res.data.message, status: res.data.status }; 
     } catch (error) {
-      console.error("Error en el registro:", error.response?.data || error.message);
+      console.error("Error en el registro (AuthContext):", error.response?.data || error.message);
       if (error.response?.data?.message) {
         setErrors([error.response.data.message]);
       } else if (Array.isArray(error.response?.data)) {
@@ -33,7 +35,7 @@ export const AuthProvider = ({ children }) => {
       } else {
         setErrors(["Ocurrió un error inesperado durante el registro."]);
       }
-      return { success: false, errors: errors };
+      return { success: false, errors: errors }; // Devuelve los errores
     }
   };
 
@@ -138,6 +140,9 @@ export const AuthProvider = ({ children }) => {
       user,
       isAuthenticated,
       errors,
+      // Si tenías updateProfile o loadProfile para el perfil, asegúrate de que estén aquí o quítalos si no los usas aún.
+      // updateProfile: () => {}, 
+      // loadProfile: () => {},
     }}>
       {children}
     </AuthContext.Provider>

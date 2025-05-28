@@ -87,7 +87,7 @@ function NavBar() {
                         <CgProfile size={20} /> {user?.username || "Usuario"} 
                         {/* Aquí "Usuario" como fallback, por si el nombre de usuario no carga en el item */}
                       </NavDropdown.Item>
-                      <NavDropdown.Item href="*">Perfil</NavDropdown.Item>
+                      <NavDropdown.Item href="/perfil">Perfil</NavDropdown.Item>
                       <NavDropdown.Item onClick={handleLogout}>
                         Cerrar Sesión
                       </NavDropdown.Item>
