@@ -25,7 +25,6 @@ const Productoitem = ({
           <Card.Text className="category text-uppercase ps-2" style={{fontWeight: 'bold'}}>
             {category}
           </Card.Text>
-          {/* <Card.Footer className="price bg-secondary text-white" align="center" style={{fontWeight: 'bold'}}>${price}</Card.Footer> */}
         </Card.Body>
         <Card.Footer className="price bg-white d-flex justify-content-around" align="center" style={{fontWeight: 'bold'}}>
           <a className='btn btn-secondary pt-1'>${price}</a>

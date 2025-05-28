@@ -1,33 +1,29 @@
 import nodemailer from 'nodemailer';
-import dotenv from 'dotenv';  // Asegúrate de cargar dotenv para usar variables de entorno
+import dotenv from 'dotenv';
 
-dotenv.config();  // Carga las variables de entorno de tu archivo .env
+dotenv.config();
 
-// Revisa si las credenciales están correctas
-console.log("EMAIL_USER:", process.env.EMAIL_USER);  // Muestra tu correo de usuario
-console.log("EMAIL_PASS:", process.env.EMAIL_PASS);  // Muestra tu contraseña de aplicación
+console.log("EMAIL_USER:", process.env.EMAIL_USER); 
+console.log("EMAIL_PASS:", process.env.EMAIL_PASS); 
 
 export const sendVerificationEmail = async (email, token) => {
-  // Crea el transportador de correos usando Gmail
   const transporter = nodemailer.createTransport({
-    service: 'gmail',  // Usamos Gmail como proveedor de correo
+    service: 'gmail', 
     auth: {
-      user: process.env.EMAIL_USER,  // Usa la variable de entorno para el usuario
-      pass: process.env.EMAIL_PASS,  // Usa la variable de entorno para la contraseña de la aplicación
+      user: process.env.EMAIL_USER, 
+      pass: process.env.EMAIL_PASS, 
     },
   });
 
-  // Enlace de verificación
   const verificationLink = `http://127.0.0.1:4000/api/verify-email/${token}`;
 
-  // Envia el correo de verificación
   try {
     await transporter.sendMail({
-      from: '"Velmart SRL" <' + process.env.EMAIL_USER + '>',  // Reemplaza con tu email
-      to: email,  // El correo del destinatario
-      subject: 'Verifica tu correo',  // Asunto del correo
+      from: '"Velmart SRL" <' + process.env.EMAIL_USER + '>',
+      to: email, 
+      subject: 'Verifica tu correo', 
       html: `<p>Haz clic en el siguiente enlace para verificar tu cuenta:</p>
-              <a href="${verificationLink}">${verificationLink}</a>`,  // Cuerpo del correo con el enlace de verificación
+              <a href="${verificationLink}">${verificationLink}</a>`, 
     });
     console.log("Correo enviado exitosamente.");
   } catch (error) {

@@ -8,7 +8,6 @@ function AboutUs() {
   return (
     <div className="bg-dark py-16">
       <div className="container mx-auto p-5 bg-secondary-subtle rounded">
-        {/* Sección Principal */}
         <section className="mb-12 text-center">
           <h2 className="text-3xl font-semibold text-gray-800 mb-6">Sobre Nosotros: Marder-Hombres</h2>
           <p className="text-lg text-gray-700 leading-relaxed mb-8">
@@ -19,13 +18,10 @@ function AboutUs() {
           </p>
         </section>
 
-        {/* Sección de Imágenes y Texto (Diseño Flexible) */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          {/* Imagen 1 */}
           <div className="rounded-lg overflow-hidden shadow-md">
             <img src={nosotros1} alt="Sastrería a Medida" className="w-full h-64 object-cover" />
           </div>
-          {/* Texto 1 */}
           <div className="flex flex-col justify-center">
             <h3 className="text-xl font-semibold text-gray-800 mb-2">Nuestra Pasión por la Sastrería</h3>
             <p className="text-gray-700 leading-relaxed">
@@ -35,25 +31,21 @@ function AboutUs() {
         </section>
 
         <section className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          {/* Texto 2 */}
           <div className="flex flex-col justify-center order-2 md:order-1">
             <h3 className="text-xl font-semibold text-gray-800 mb-2">Elegancia en Cada Detalle: Ropa Formal y Accesorios</h3>
             <p className="text-gray-700 leading-relaxed">
               Nuestra colección de ropa formal cuidadosamente seleccionada abarca desde clásicos imprescindibles hasta las últimas tendencias. Complementa tu estilo con nuestros accesorios de alta calidad, diseñados para añadir ese toque final de distinción a cualquier atuendo. Corbatas, pañuelos, cinturones, y más, cada pieza ha sido elegida por su calidad y diseño.
             </p>
           </div>
-          {/* Imagen 2 */}
           <div className="rounded-lg overflow-hidden shadow-md order-1 md:order-2">
             <img src={nosotros2} alt="Colección de Ropa Formal" className="w-full h-64 object-cover" />
           </div>
         </section>
 
         <section className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          {/* Imagen 3 */}
           <div className="rounded-lg overflow-hidden shadow-md">
             <img src={nosotros3} alt="Accesorios de Distinción" className="w-full h-64 object-cover" />
           </div>
-          {/* Texto 3 */}
           <div className="flex flex-col justify-center">
             <h3 className="text-xl font-semibold text-gray-800 mb-2">Compromiso con la Calidad y la Experiencia del Cliente</h3>
             <p className="text-gray-700 leading-relaxed">
@@ -62,7 +54,6 @@ function AboutUs() {
           </div>
         </section>
 
-        {/* Sección de Llamada a la Acción */}
         <section className="text-center">
           <p className="text-lg text-gray-700 mb-5">
             Descubre la elegancia que define a Marder-Hombres.

@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../Context/AuthContext';
 import { useNavigate } from 'react-router-dom';
-// Importamos el icono de Bootstrap desde react-icons
-import { BsPersonCircle } from 'react-icons/bs'; // 'bs' es el prefijo para Bootstrap Icons en react-icons
+import { BsPersonCircle } from 'react-icons/bs';
 
 function ProfilePage() {
     const { user, logout, loading } = useAuth();
     const navigate = useNavigate();
-    const [profileImage, setProfileImage] = useState(''); // Para la simulación de la imagen de perfil
+    const [profileImage, setProfileImage] = useState('');
 
     useEffect(() => {
-        // Simulación de carga de imagen de perfil (puedes reemplazar esto con lógica real)
         const randomImageNumber = Math.floor(Math.random() * 100) + 1;
         setProfileImage(`https://randomuser.me/api/portraits/lego/${randomImageNumber}.jpg`);
     }, []);
@@ -21,7 +19,6 @@ function ProfilePage() {
             navigate('/login');
         } catch (error) {
             console.error("Error al cerrar sesión:", error);
-            // Mostrar mensaje de error si es necesario
         }
     };
 
@@ -44,8 +41,6 @@ function ProfilePage() {
                     </div>
                     <div className="p-8">
                         <div className="flex flex-col items-center md:items-start">
-                            {/* Icono de perfil de Bootstrap usando react-icons */}
-                            {/* Los iconos de react-icons se pueden estilizar directamente con className de Tailwind */}
                             <BsPersonCircle className="text-white text-6xl mb-4" /> 
                             <div className="uppercase tracking-wide text-sm text-white font-semibold">Perfil de Usuario</div>
                             <h2 className="block mt-1 text-lg leading-tight font-medium text-white">{user.username}</h2>
@@ -82,7 +77,7 @@ function ProfilePage() {
                                 <input
                                     type="password"
                                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline bg-zinc-700"
-                                    value="********" // Formato oculto
+                                    value="********"
                                     readOnly
                                 />
                                 <p className="text-gray-500 text-xs italic">Tu contraseña está protegida.</p>

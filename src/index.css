@@ -102,7 +102,6 @@ h1 {
 .titulo-prod {
   font-size: 45px;
   color: rgb(107, 107, 107);
-  /* font-weight: 200; */
   font-family: 'Times New Roman', Times, serif;
 }
 
@@ -114,7 +113,6 @@ h1 {
 }
 
 .inicio-cards {
-  /* border: 1px solid rgb(158, 158, 158); */
   border-radius: 5px;
   cursor: pointer;
   height: 100%;
@@ -124,12 +122,6 @@ h1 {
   border: 2px solid #4e4e57;
   border-radius: 5px;
 }
-
-/* .div-link {
-  font-family: Trebuchet;
-  font-size: large;
-  font-weight: bold;
-} */
 
 .link-a {
   color: #4f505e;
@@ -153,12 +145,9 @@ h1 {
 
 .productos {
   padding: 1.5rem 2rem;
-  /* margin: 0 auto; */
   display: grid;
-  /* grid-template-columns: max-content; */
   grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
   gap: .5rem .5rem;
-  /* box-sizing: border-box; */
   border-top: #9d9ea0 2px solid;
   border-bottom: #9d9ea0 2px solid;
 }
@@ -169,7 +158,6 @@ h1 {
   height: 410px;
   flex-direction: column;
   align-items: center;
-  /* box-shadow: 1px 5px 5px 1px rgba(0, 0, 0, .2); */
   border: 2px solid rgb(215, 215, 218);
   border-radius: 4px;
 }
@@ -199,7 +187,6 @@ h1 {
   background-color: #113d80;
   max-width: 250px;
   width: 100%;
-  /* margin: 0 auto; */
   font-size: 1.5rem;
   color: white;
   font-weight: 600;
@@ -227,19 +214,6 @@ h1 {
 }
 
 /* ----- CARRITO ----- */
-
-/* .carritos {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transition: all 300ms ease-in-out;
-  background-color: rgba(0,0,0, .6);
-  z-index: 2;
-  padding-bottom: 5rem;
-  visibility: hidden;
-} */
 
 .carrito {
   position: fixed;
@@ -295,7 +269,6 @@ h1 {
   display: grid;
   grid-template-columns: 1fr 1fr .2fr 1fr;
   width: 80%;
-  /* height: 145px; */
   margin: 2rem auto;
   box-shadow: 0 1px 6px #000000;
   border-radius: 5px;
@@ -322,7 +295,6 @@ h1 {
   font-size: 2rem;
   font-weight: bold;
   text-align: start;
-  /* margin-left: -1rem; */
 }
 
 .carrito__item .div__cantidad .arrow  {
@@ -366,7 +338,6 @@ div .div__cantidad {
   width: 50px;
   height: 60px;
   fill: rgb(7, 7, 7);
-  /* margin-top: 2rem; */
   align-items: center;
 }
 
@@ -406,10 +377,6 @@ div .div__cantidad {
 .carrito__item .div__cantidad {
   margin-left: 1.5rem;
 }
-
-/* ----- LOGIN -----  */
-
-/* ----- REGISTER -----  */
 
 /* ----- FOOTER ----- */
 
@@ -457,12 +424,6 @@ div .div__cantidad {
   border-radius: 15px;
   object-fit: cover;
 }
-
-/* .contactus {
-  background-color: #fff;
-  border-radius: 15px;
-  padding: 20px;
-} */
 
 .boton-submit {
   background: #fff;
@@ -518,7 +479,7 @@ div .div__cantidad {
 }
 
 .not-found-image {
-  max-width: 80%; /* Hace que la imagen sea responsive */
+  max-width: 80%;
   height: auto;
   margin-bottom: 30px;
 }
@@ -706,7 +667,6 @@ div .div__cantidad {
   color: #0056b3;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .terms-container {
     padding: 20px;
@@ -730,7 +690,6 @@ div .div__cantidad {
   }
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .privacy-policy-container {
     padding: 20px;
@@ -773,24 +732,6 @@ div .div__cantidad {
   .carrito__item h3 {
     font-size: 1.2rem;
   }
-
-  /* div.productos{
-    display: grid;
-    grid-template-columns: repeat(2, minmax(16.5rem, .1fr));
-    gap: .4rem .4rem;
-    justify-content: center;
-  } */
-
-  /* .card {
-    width: 11.0rem,
-  } */
-
-  /* div.producto {
-    display: flex;
-    width: 100%;
-    height: 410px;
-    flex-direction: column;
-    } */
   }
 
 @media only screen and (max-width: 600px) {

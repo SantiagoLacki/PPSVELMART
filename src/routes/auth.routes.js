@@ -7,11 +7,11 @@ import { registerSchema, loginSchema } from '../schemas/auth.schema.js';
 const router = Router();
 
 router.post('/register', validateSchema(registerSchema), register);
-router.post('/login', validateSchema(loginSchema), login); // Ahora la función login está disponible
+router.post('/login', validateSchema(loginSchema), login);
 router.post('/logout', logout);
 router.get('/verify', verifyToken);
 router.get('/profile', authRequired, profile);
-router.get('/verify-email/:token', verifyEmail);  // Asegúrate de que este endpoint está bien definido
+router.get('/verify-email/:token', verifyEmail);
 
 router.get("/check-verification/:email", checkVerificationStatus);
 

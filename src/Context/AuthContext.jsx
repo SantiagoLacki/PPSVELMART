@@ -1,7 +1,7 @@
 import { createContext, useState, useContext, useEffect } from 'react';
 import { registerRequest, loginRequest, verifyTokenRequest, logoutRequest } from "../api/auth.js";
 import Cookies from "js-cookie";
-import axios from "axios"; // Asegúrate de que axios esté importado
+import axios from "axios"; 
 
 export const AuthContext = createContext();
 
@@ -16,15 +16,14 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [errors, setErrors] = useState([]); // Este es el array de errores que se muestra
+  const [errors, setErrors] = useState([]); 
   const [loading, setLoading] = useState(true);
 
   const signup = async (userData) => {
     try {
       const res = await registerRequest(userData);
-      setErrors([]); // Limpiar errores previos si el registro fue exitoso
-      console.log("Respuesta de registro (AuthContext):", res.data); // ✅ Añadido para depuración
-      // ✅ Devolvemos la data completa del backend, incluyendo el mensaje y cualquier otro status
+      setErrors([]); 
+      console.log("Respuesta de registro (AuthContext):", res.data);
       return { success: true, data: res.data, message: res.data.message, status: res.data.status }; 
     } catch (error) {
       console.error("Error en el registro (AuthContext):", error.response?.data || error.message);
@@ -35,7 +34,7 @@ export const AuthProvider = ({ children }) => {
       } else {
         setErrors(["Ocurrió un error inesperado durante el registro."]);
       }
-      return { success: false, errors: errors }; // Devuelve los errores
+      return { success: false, errors: errors }; 
     }
   };
 
@@ -52,11 +51,10 @@ export const AuthProvider = ({ children }) => {
         return { errors: ["No se recibió token."] };
       }
 
-      // MODIFICACIÓN: Añadir 'expires' y 'path' a la cookie para persistencia
       Cookies.set("token", res.data.token, { expires: 1, path: '/' }); 
       setIsAuthenticated(true);
-      setUser(res.data.user); // Ahora esperamos que res.data.user incluya username
-      setErrors([]); // Limpiar errores previos si el login fue exitoso
+      setUser(res.data.user); 
+      setErrors([]); 
 
       return { success: true, user: res.data.user, token: res.data.token };
 
@@ -65,7 +63,6 @@ export const AuthProvider = ({ children }) => {
       setIsAuthenticated(false);
       setUser(null);
       
-      // MODIFICACIÓN: para mostrar mensajes de error específicos del backend
       if (error.response?.data?.message) {
         setErrors([error.response.data.message]);
       } else if (Array.isArray(error.response?.data)) {
@@ -84,7 +81,6 @@ export const AuthProvider = ({ children }) => {
     } catch (error) {
       console.error("Logout: Error al enviar solicitud de cierre de sesión al backend:", error);
     } finally {
-      // MODIFICACIÓN: Asegurar el path al eliminar la cookie
       Cookies.remove("token", { path: '/' }); 
       setIsAuthenticated(false);
       setUser(null);
@@ -95,7 +91,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     async function checkLogin() {
       try {
-        setLoading(true); // Indica que la carga está activa durante la verificación
+        setLoading(true); 
         const res = await verifyTokenRequest(); 
         console.log("Respuesta del backend al verificar token:", res ? res.data : null);
 
@@ -112,21 +108,19 @@ export const AuthProvider = ({ children }) => {
         console.error("Error al verificar token:", error.response?.data || error.message);
         setIsAuthenticated(false);
         setUser(null);
-        // MODIFICACIÓN: Asegurar el path al eliminar la cookie
         Cookies.remove("token", { path: '/' }); 
       } finally {
-        setLoading(false); // La carga ha terminado
+        setLoading(false);
       }
     }
     checkLogin();
   }, []);
 
-  // MODIFICACIÓN: Limpia los errores después de un tiempo
   useEffect(() => {
     if (errors.length > 0) {
       const timer = setTimeout(() => {
         setErrors([]);
-      }, 5000); // Los errores desaparecen después de 5 segundos
+      }, 5000);
       return () => clearTimeout(timer);
     }
   }, [errors]);
@@ -140,9 +134,6 @@ export const AuthProvider = ({ children }) => {
       user,
       isAuthenticated,
       errors,
-      // Si tenías updateProfile o loadProfile para el perfil, asegúrate de que estén aquí o quítalos si no los usas aún.
-      // updateProfile: () => {}, 
-      // loadProfile: () => {},
     }}>
       {children}
     </AuthContext.Provider>

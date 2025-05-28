@@ -15,9 +15,6 @@ const ProductosLista = () => {
     setCintos(data.cintos);
   }, []);
 
-  // const value = useContext(DataContext);
-  // const { addCarrito } = value;
-
 
   return (
     <>

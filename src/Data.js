@@ -6,8 +6,6 @@ const data = {
       price: 230700,
       image: 'https://ucarecdn.com/b49c0860-970f-4f7d-b542-05b223eb4404/traje3.jpeg',
       category: "Ona Saez",
-      // img1: "https://stockx-360.imgix.net/Nike-LD-Waffle-Sacai-Black-Nylon/Images/Nike-LD-Waffle-Sacai-Black-Nylon/Lv2/img",
-      // img2: ".jpg?auto=format,compress&q=90&updated_at=1606321430&w=1000",
       cantidad: 1,
     },
     {
@@ -16,8 +14,6 @@ const data = {
       price: 210317,
       image: 'https://ucarecdn.com/a280a6e4-cb84-4ed7-9796-f0ece6bd89f7/trajeGrisOscuro.jpeg',
       category: "Ona Saez",
-      // img1: "https://stockx-360.imgix.net/Nike-Dunk-Low-Off-White-Pine-Green/Images/Nike-Dunk-Low-Off-White-Pine-Green/Lv2/img",
-      // img2: ".jpg?auto=format,compress&q=90&updated_at=1606319825&w=1000",
       cantidad: 1
     },
     {
@@ -26,8 +22,6 @@ const data = {
       price: 250469,
       image: 'https://ucarecdn.com/e1344489-3160-4bdb-a75a-fbc7a5cb5651/traje2.jpeg',
       category: "Ona Saez",
-      // img1: "https://stockx-360.imgix.net/Nike-Air-Force-1-Low-Supreme-Box-Logo-Black/Images/Nike-Air-Force-1-Low-Supreme-Box-Logo-Black/Lv2/img",
-      // img2: ".jpg?auto=format,compress&q=90&updated_at=1606325289&w=1000",
       cantidad: 1
     },
     {
@@ -36,8 +30,6 @@ const data = {
       price: 232999,
       image: 'https://ucarecdn.com/107a1af1-39d6-4e8b-8838-eb2d9fd631ef/traje1.jpeg',
       category: "Ona Saez",
-      // img1: "https://stockx-360.imgix.net/Nike-LD-Waffle-Sacai-White-Nylon/Images/Nike-LD-Waffle-Sacai-White-Nylon/Lv2/img",
-      // img2: ".jpg?auto=format,compress&q=90&updated_at=1606325338&w=1000",
       cantidad: 1
     }
   ],
@@ -79,28 +71,24 @@ const data = {
       title: "Cinto - Classic",
       price: 25999,
       image: 'https://ucarecdn.com/eb4753f3-b6d2-44c4-aaab-c93b3a36d042/LINDENMANNV1000397_010FEKETE.jpeg',
-      // category: "Polo",
     },
     {
       id: 2,
       title: "Cinto - Beige",
       price: 30199,
       image: 'https://ucarecdn.com/c329d4f5-456f-4f97-bb7f-e3ee89f9e207/LLOYDV1295_11KONYAK.jpeg',
-      // category: "Polo",
     },
     {
       id: 3,
       title: "Cinto - Blue",
       price: 20800,
       image: 'https://ucarecdn.com/b830c854-dfbf-46c1-b7f1-a46c1fb37007/SlideBeltsClassicBeltwithPremiumBuckle.jpeg',
-      // category: "Polo",
     },
     {
       id: 4,
       title: "Cinto - Red",
       price: 19999,
       image: 'https://ucarecdn.com/d4a193c6-0f76-499e-b470-a09cf04d85da/MensCordovanBeltForSuitRealLeather13_8InchSilverBuckleDressLeatherBelt35Mm.jpeg',
-      // category: "Polo",
     }
   ]
 };

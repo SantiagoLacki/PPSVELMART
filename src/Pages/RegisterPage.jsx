@@ -20,23 +20,20 @@ function RegisterPage() {
   }, [isAuthenticated, navigate]);
 
   const onSubmit = handleSubmit(async (values) => {
-    setUserEmail(values.email); // Guardar el email para el modal
+    setUserEmail(values.email);
     const response = await signup({
       username: values.username,
       email: values.email,
       password: values.password,
     });
 
-    console.log("Respuesta de signup en RegisterPage:", response); // ✅ Añadido para depuración
+    console.log("Respuesta de signup en RegisterPage:", response);
 
-    // ✅ CONDICIÓN CLAVE: Muestra el modal si el registro fue exitoso y el backend indica "pending_verification"
     if (response.success && response.status === "pending_verification") { 
       setShowModal(true); 
     } else if (response.success && response.message === "Usuario registrado. Verifica tu correo antes de iniciar sesión.") {
-        // Fallback si el backend solo envía el mensaje sin el "status"
         setShowModal(true);
     }
-    // Si no es un éxito esperado para mostrar el modal, los errores se mostrarán automáticamente por useAuth
   });
 
   const checkVerification = async () => {
@@ -47,11 +44,10 @@ function RegisterPage() {
     setVerificationError("");
 
     try {
-      // ✅ Endpoint para verificar el ESTADO de la verificación (no para activarla)
       const res = await fetch(`http://localhost:4000/api/check-verification/${userEmail}?t=${Date.now()}`); 
       const data = await res.json();
 
-      console.log("Respuesta de checkVerification:", data); // ✅ Añadido para depuración
+      console.log("Respuesta de checkVerification:", data); 
 
       if (res.ok && data.isVerified) {
         setIsVerified(true);
@@ -60,7 +56,7 @@ function RegisterPage() {
         }, 1000);
       } else {
         setVerificationError("Todavía no has verificado tu correo o el email es incorrecto. Intenta de nuevo.");
-        setHasClickedVerify(false); // Permite volver a intentar
+        setHasClickedVerify(false); 
       }
     } catch (error) {
       console.error("Error verificando el email:", error);

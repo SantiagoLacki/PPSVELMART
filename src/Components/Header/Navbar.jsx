@@ -14,37 +14,29 @@ function NavBar() {
   const { isAuthenticated, logout, user } = useAuth();
   const navigate = useNavigate();
 
-  // Logs de depuración: Te ayudarán a ver el estado de isAuthenticated y user.username
   useEffect(() => {
     console.log("NavBar useEffect (detectó cambio):");
     console.log("  - isAuthenticated:", isAuthenticated);
     console.log("  - user:", user);
     console.log("  - user?.username:", user?.username);
-  }, [isAuthenticated, user]); // Se ejecuta cuando isAuthenticated o user cambian
+  }, [isAuthenticated, user]);
 
   const handleLogout = () => {
     logout();
     navigate('/login');
   };
 
-  // Esta lógica decide qué mostrar en el título del NavDropdown.
-  // Es crucial para que el nombre de usuario aparezca cuando debe y no parpadee.
   const profileDropdownTitleContent = (
     <div 
       className="d-flex align-items-center gap-1"
       style={{
-        justifyContent: 'center', // Centra horizontalmente el icono y el texto
-        width: '100%', // Asegura que el div ocupe todo el ancho para centrar correctamente
-        // Considera agregar un min-width si los elementos "saltan" visualmente al cambiar el contenido
-        // minWidth: '80px' 
+        width: '100%',
       }}
     >
       <CgProfile size={26} /> 
-      {/* Solo muestra el nombre de usuario si está autenticado Y el objeto user existe Y tiene un username */}
       {isAuthenticated && user?.username && (
         <span>{user.username}</span>
       )}
-      {/* Si no está autenticado, o user.username no está disponible, este span no se renderiza. */}
     </div>
   );
 
@@ -69,23 +61,21 @@ function NavBar() {
                 <Nav.Link href="/carrito"><FaCartPlus size={25} /></Nav.Link>
 
                 <NavDropdown
-                  title={profileDropdownTitleContent} // Usamos la variable definida arriba
+                  title={profileDropdownTitleContent} 
                   id="logo-perfil-expansivo"
                 >
                   {isAuthenticated ? (
                     <>
-                      {/* Item del dropdown con el nombre de usuario y su icono */}
                       <NavDropdown.Item 
                         className="perfil-user"
                         style={{
                           display: 'flex',
                           alignItems: 'center',
-                          justifyContent: 'center', // Centra el contenido horizontalmente dentro del item
+                          justifyContent: 'center', 
                           gap: '0.25rem' 
                         }}
                       >
                         <CgProfile size={20} /> {user?.username || "Usuario"} 
-                        {/* Aquí "Usuario" como fallback, por si el nombre de usuario no carga en el item */}
                       </NavDropdown.Item>
                       <NavDropdown.Item href="/perfil">Perfil</NavDropdown.Item>
                       <NavDropdown.Item onClick={handleLogout}>
