@@ -19,10 +19,10 @@ export const sendVerificationEmail = async (email, token) => {
 
   try {
     await transporter.sendMail({
-      from: '"Velmart SRL" <' + process.env.EMAIL_USER + '>',
+      from: '"Marder-hombres Online" <' + process.env.EMAIL_USER + '>',
       to: email, 
       subject: 'Verifica tu correo', 
-      html: `<p>Haz clic en el siguiente enlace para verificar tu cuenta:</p>
+      html: `<p>Haz clic en el siguiente enlace para verificar tu cuenta en Marder-Hombres:</p>
               <a href="${verificationLink}">${verificationLink}</a>`, 
     });
     console.log("Correo enviado exitosamente.");
